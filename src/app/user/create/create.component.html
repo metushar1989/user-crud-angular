@@ -1,0 +1,95 @@
+<h1 class="mt-5">
+    Create New User
+</h1>
+
+<form [formGroup]="userCreateForm" *ngIf="userCreateForm" (ngSubmit)="submitCreateForm()">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="exampleInputFirstName">First Name</label>
+                <input type="text" class="form-control" placeholder="Enter first name" formControlName="firstName" />
+                <small class="alert alert-danger" *ngIf="f.firstName.errors?.required">
+                    First Name <strong>Required</strong>
+                </small>
+                <small class="alert alert-danger" *ngIf="f.firstName.errors?.touched">
+                    First Name <strong>Required</strong>
+                </small>
+                <small class="alert alert-danger" *ngIf="f.firstName.errors?.pattern">
+                    First Name <strong>Required</strong>
+                </small>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="exampleInputLastName">Last Name</label>
+                <input type="text" class="form-control" placeholder="Enter last name" formControlName="lastName" />
+                <small class="alert alert-danger" *ngIf="f.lastName.errors?.required">
+                    Last Name <strong>Required</strong>
+                </small>
+                <small class="alert alert-danger" *ngIf="f.lastName.errors?.touched">
+                    Last Name <strong>Required</strong>
+                </small>
+                <small class="alert alert-danger" *ngIf="f.lastName.errors?.pattern">
+                    Last Name <strong>Required</strong>
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="exampleInputEmail">Email</label>
+                <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email"
+                    formControlName="email" />
+                <small id="emailHelp" class="form-text text-muted">We'll never share your contact with anyone
+                    else.</small>
+                <small class="alert alert-danger" *ngIf="f.email.errors?.required">
+                    Email <strong>Required</strong>
+                </small>
+                <small class="alert alert-danger" *ngIf="f.email.errors?.touched">
+                    Email <strong>Required</strong>
+                </small>
+                <small class="alert alert-danger" *ngIf="f.email.errors?.pattern">
+                    Email <strong>Required</strong>
+                </small>
+                <small class="alert alert-danger" *ngIf="f.email.errors?.email">Email <strong>Not Valid</strong>
+                </small>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="exampleInputMobile">Mobile Number</label>
+                <input class="form-control" aria-describedby="phoneHelp" placeholder="Enter mobile number"
+                    formControlName="mobile" />
+                <small id="phoneHelp" class="form-text text-muted">We'll never share your mobile with anyone
+                    else.</small>
+                <small class="alert alert-danger" *ngIf="f.mobile.errors?.required">
+                    Mobile <strong> Required</strong>
+                </small>
+                <small class="alert alert-danger" *ngIf="f.mobile.errors?.touched">
+                    Mobile <strong> Required</strong>
+                </small>
+                <small class="alert alert-danger" *ngIf="f.mobile.errors?.minlength">
+                    Mobile <strong> Min 10 digit</strong>
+                </small>
+                <small class="alert alert-danger" *ngIf="f.mobile.errors?.maxlength">
+                    Mobile <strong> Max 10 digit</strong>
+                </small>
+                <small class="alert alert-danger" *ngIf="f.mobile.errors?.pattern">
+                    Enter <strong> digit</strong>
+                </small>
+                <!-- <small class="alert alert-danger" *ngIf="f.mobile.errors?.pattern">
+                        Monile <strong>Required</strong>
+                    </small> -->
+
+            </div>
+        </div>
+    </div>
+
+    <button [disabled]="!userCreateForm.valid" type="submit" class="btn btn-primary">
+        Submit
+    </button>
+</form>
